@@ -13,10 +13,9 @@ class App extends Component {
   componentDidMount(){
       axios.get('https://randomuser.me/api/?results=3')
         .then(response => { // .then() takes a function, that starts after data is recieved
-
             const info = response.data.results;
             this.setState( {info: info} )
-
+            console.log(info);
         });
 
   }
@@ -28,7 +27,7 @@ class App extends Component {
           image={att.picture.large}
           firstName={att.name.first}
           lastName={att.name.last}
-          email={att.email}
+          key={att.login.uuid}
         />
     })
 

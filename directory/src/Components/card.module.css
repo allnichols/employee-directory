@@ -2,10 +2,20 @@
   border: 1px solid black;
   max-width: 300px;
   margin: 10px auto;
+  padding: 15px;
   border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: white;
 }
 
 .card img{
   padding-top: 5px;
   border-radius: 50%;
+}
+
+.card p{
+  text-transform: capitalize;
 }
