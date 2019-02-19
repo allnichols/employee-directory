@@ -22,19 +22,21 @@ class App extends Component {
         });
   }
 
-  // cardSelectedHandler = (id, arr) => {
-  //     this.setState({
-  //       id: id,
-  //     });
-  //
-  // }
+  cardSelectedHandler = (id) => {
+      this.setState({
+        id: id,
+      });
+      console.log(id);
+  }
 
 
 
   render() {
-    let workers = this.state.data.map(data => {
+    let workers = this.state.data.map((data, key) => {
+
         return <EmployeeCard
             name={data.name}
+            clicked={() => this.cardSelectedHandler(key)}
             />
     })
 

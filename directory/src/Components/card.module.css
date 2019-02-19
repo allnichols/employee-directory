@@ -1,14 +1,10 @@
 .card{
   border: 1px solid black;
-  max-width: 300px;
-  margin: 10px auto;
-  padding: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-around;
   align-items: center;
+  margin: 10px auto;
+  max-width: 200px;
   background: white;
+  cursor: pointer;
 }
 
 .card img{
@@ -16,9 +12,6 @@
   border-radius: 50%;
 }
 
-.card p{
-  text-transform: capitalize;
-}
 
 .module{
   display: none;
