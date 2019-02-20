@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import EmployeeCard from './Components/EmployeeCard';
-// import EmployeeInfo from './Components/EmployeeInfo';
-// import Info from './Components/Info';
+import EmployeeInfo from './Components/EmployeeInfo';
+
 
 
 import './App.css';
@@ -10,7 +10,8 @@ import './App.css';
 class App extends Component {
 
   state = {
-    data: []
+    data: [],
+    userId:null
   }
 
   componentDidMount(){
@@ -23,28 +24,31 @@ class App extends Component {
   }
 
   cardSelectedHandler = (id) => {
-      this.setState({
-        id: id,
-      });
+      this.setState({  userId: id,  });
       console.log(id);
   }
 
 
 
   render() {
-    let workers = this.state.data.map((data, key) => {
-
+    let workers = this.state.data.map(data => {
         return <EmployeeCard
+            key={data.id}
             name={data.name}
-            clicked={() => this.cardSelectedHandler(key)}
+            clicked={() => this.cardSelectedHandler(data.id)}
             />
+
     })
 
 
     return (
       <div className="App">
         <h1>Employee Directory</h1>
-        {workers}
+            {workers}
+            <EmployeeInfo
+            id={this.state.userId}
+            
+              />
       </div>
     );
   }
