@@ -10,10 +10,10 @@ class EmployeeInfo extends Component {
     loadedData:null
   }
 
-  componentDidMount(){
+  componentDidUpdate(){
     if ( this.props.id ) {
-        if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id) ) {
-          axios.get('https://jsonplaceholder.typicode.com/users')
+        if ( !this.state.loadedData || (this.state.loadedData && this.state.loadedData !== this.props.id) ) {
+          axios.get('https://jsonplaceholder.typicode.com/users?id=' + this.props.id)
           .then(response=> {
               this.setState( {loadedData: response.data} )
           });
@@ -23,14 +23,22 @@ class EmployeeInfo extends Component {
 
 
   render () {
+    let info = <p>no data</p>;
+      if(this.props.id) {
+        info = <p>Loading!</p>;
+      }
+      if (this.state.loadedData) {
+        info = (
+               <div>
+                  <p>{this.props.id}</p>
+                  <p>{this.state.loadedData.name}</p>
+                </div>
+        );
+      }
+      return info
 
-    if (this.props.id && this.state.loadedData){
-      return <p>{this.state.loadedDate}</p>
-    } else{
-      return <p>no data</p>
     }
 
-    }
 }
 
 
