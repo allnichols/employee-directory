@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import EmployeeCard from './Components/EmployeeCard';
-import EmployeeInfo from './Components/EmployeeInfo';
+import EmployeeCard from '../Components/EmployeeCard';
+import EmployeeInfo from '../Components/EmployeeInfo';
 
 
 
@@ -47,7 +47,7 @@ class App extends Component {
             {workers}
             <EmployeeInfo
             id={this.state.userId}
-            
+
               />
       </div>
     );
