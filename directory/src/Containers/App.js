@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import EmployeeCard from '../Components/EmployeeCard';
 import EmployeeInfo from '../Components/EmployeeInfo';
-
-
-
-import './App.css';
+import Auxillary from '../hoc/Auxillary';
+import styles from './App.module.css';
 
 class App extends Component {
 
@@ -42,14 +40,17 @@ class App extends Component {
 
 
     return (
-      <div className="App">
-        <h1>Employee Directory</h1>
-            {workers}
-            <EmployeeInfo
-            id={this.state.userId}
-
-              />
-      </div>
+      <Auxillary>
+        <div className="App">
+          <h1>Employee Directory</h1>
+          <div className={styles.grid}>
+              {workers}
+              <EmployeeInfo
+              id={this.state.userId}
+                />
+          </div>
+        </div>
+      </Auxillary>
     );
   }
 }
