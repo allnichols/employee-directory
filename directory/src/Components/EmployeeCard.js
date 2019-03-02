@@ -5,8 +5,8 @@ const employee = (props) =>  {
     return (
 
       <div className={styles.card} onClick={props.clicked}>
-          <img src={props.image}/>
-          <p> {props.name}</p>
+          <img src={props.image} alt="user"/>
+          <p> {props.name} </p>
         </div>
 
     )
