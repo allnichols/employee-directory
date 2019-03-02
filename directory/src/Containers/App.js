@@ -13,9 +13,9 @@ class App extends Component {
   }
 
   componentDidMount(){
-      axios.get('https://jsonplaceholder.typicode.com/users')
+      axios.get('https://randomuser.me/api/?results=10')
         .then(response => { // .then() takes a function, that starts after data is recieved
-          let info = response.data
+          let info = response.data.results
           this.setState({data:info})
           console.log(info);
         });
@@ -31,11 +31,11 @@ class App extends Component {
   render() {
     let workers = this.state.data.map(data => {
         return <EmployeeCard
-            key={data.id}
-            name={data.name}
-            clicked={() => this.cardSelectedHandler(data.id)}
+            key={data.login.uuid}
+            name={data.name.first}
+            image={data.picture.medium}
+            clicked={() => this.cardSelectedHandler(data.login.uuid)}
             />
-
     })
 
 
