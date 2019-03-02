@@ -7,8 +7,7 @@ const modal = (props) => {
     return(
 
         <div className={styles.Modal} key={props.id} show={props.show}
-
-             style={{display: props.show ? 'block' : 'none',
+             style={{transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
                      opacity: props.show ? '1' : '0'}}>
 
         <img src={props.image} alt="user"/>
@@ -19,9 +18,5 @@ const modal = (props) => {
 
   )
 }
-
-
-
-
 
 export default modal;

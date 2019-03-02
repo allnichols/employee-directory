@@ -59,14 +59,12 @@ class App extends Component {
             image={image}
             clicked={() => this.cardSelectedHandler(data.login.uuid, name, image, email)}
             />
-
     })
 
 
 
     return (
       <Auxillary>
-
         <div className="App">
           <h1>Employee Directory</h1>
           <Modal key={this.state.userId} show={this.state.userClicked}
