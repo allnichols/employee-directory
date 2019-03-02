@@ -1,13 +1,50 @@
 .Modal{
-  position: fixed;
+    position: fixed;
     z-index: 500;
     background-color: white;
-    width: 70%;
     border: 1px solid #ccc;
+    border-radius: 10px;
     box-shadow: 1px 1px 1px black;
     padding: 16px;
+    width: 70%;
     left: 15%;
     top: 30%;
+    margin: auto;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+}
+
+.Modal img{
+  border-radius: 50%;
+  border: 1px solid #444;
+}
+
+.Modal button {
+  padding: 5px 12px;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  background-color:#dc143c;
+}
+
+.Name{
+  text-transform: capitalize;
+}
+
+
+
+
+@media (min-width:525px) {
+  .Modal{
+    width: 50%;
+    left: 35%;
+  }
+}
+@media (min-width:725px) {
+  .Modal{
+    width: 30%;
+    left: 35%;
+  }
 }

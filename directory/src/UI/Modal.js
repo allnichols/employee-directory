@@ -11,7 +11,8 @@ const modal = (props) => {
                      opacity: props.show ? '1' : '0'}}>
 
         <img src={props.image} alt="user"/>
-        <p>{props.name}</p>
+        <p className={styles.Name}>{props.name}</p>
+        <p>{props.phone}</p>
         <p>{props.email}</p>
         <button onClick={props.close}>close</button>
       </div>

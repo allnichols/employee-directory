@@ -14,6 +14,7 @@ class App extends Component {
     name:null,
     image:null,
     email:null,
+    phone:null,
     userId:null,
     userClicked: false
   }
@@ -30,12 +31,13 @@ class App extends Component {
   }
 
 
-  cardSelectedHandler = (id, name, img, mail) => {
+  cardSelectedHandler = (id, name, img, mail, phone) => {
       this.setState({
         userId: id,
           name: name,
          image: img,
          email: mail,
+         phone: phone,
          userClicked:true
       });
       console.log(id);
@@ -50,14 +52,17 @@ class App extends Component {
 
   render() {
     let workers = this.state.data.map(data => {
-      let name = data.name.first;
-      let image = data.picture.medium;
+      let firstName = data.name.first;
+      let lastName = data.name.last;
+      let name = firstName + ' ' + lastName;
+      let image = data.picture.large;
       let email = data.email;
+      let phone = data.phone;
         return <EmployeeCard
             key={data.login.uuid}
             name={name}
             image={image}
-            clicked={() => this.cardSelectedHandler(data.login.uuid, name, image, email)}
+            clicked={() => this.cardSelectedHandler(data.login.uuid, name, image, email, phone)}
             />
     })
 
@@ -65,13 +70,14 @@ class App extends Component {
 
     return (
       <Auxillary>
-        <div className="App">
+        <div className={styles.App}>
           <h1>Employee Directory</h1>
           <Modal key={this.state.userId} show={this.state.userClicked}
           close={this.userClosedHandler}
           name={this.state.name}
           image={this.state.image}
-          email={this.state.email} />
+          email={this.state.email}
+          phone={this.state.phone} />
 
           <div className={styles.grid}>
               {workers}
